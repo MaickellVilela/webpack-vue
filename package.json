@@ -4,12 +4,18 @@
   "description": "A Vue.js project",
   "author": "Maickell Vilela <maickell.vilela@before.com.br>",
   "private": true,
+  "main": "index.js",
   "scripts": {
     "dev": "node build/dev-server.js",
-    "build": "node build/build.js"
+    "build": "node build/build.js",
+    "autoprefixer": "postcss -u autoprefixer -r style/css/*",
+    "scss": "node-sass -o style/css style/scss",
+    "build:css": "npm run scss && npm run autoprefixer",
+    "watch:css": "onchange 'style/scss' -- npm run build:css"
   },
   "dependencies": {
-    "vue": "^2.1.0"
+    "vue": "^2.1.0",
+    "bootstrap": "4.0.0-alpha.6"
   },
   "devDependencies": {
     "autoprefixer": "^6.4.0",
@@ -42,7 +48,12 @@
     "webpack": "^1.13.2",
     "webpack-dev-middleware": "^1.8.3",
     "webpack-hot-middleware": "^2.12.2",
-    "webpack-merge": "^0.14.1"
+    "webpack-merge": "^0.14.1",
+    "autoprefixer": "^6.3.6",
+    "node-sass": "^3.8.0",
+    "node-sass-asset-functions": "^0.0.9",
+    "postcss-cli": "^2.5.2",
+    "onchange": "^2.4.0"
   },
   "engines": {
     "node": ">= 4.0.0",
